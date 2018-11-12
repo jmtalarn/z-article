@@ -22,12 +22,45 @@
   "scripts": {
     "start": "concurrently \"node api/server\" \"react-scripts start\"",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest",
     "eject": "react-scripts eject"
   },
   "proxy": "http://localhost:3001/",
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "jest": {
+    "verbose": true,
+    "projects": [{
+        "displayName": "backend",
+        "testEnvironment": "node",
+        "testMatch": [
+          "<rootDir>/api/**/*.test.js"
+        ]
+      },
+      {
+        "displayName": "frontend",
+        "testEnvironment": "jsdom",
+        "testMatch": [
+          "<rootDir>/src/**/*.test.js"
+        ],
+        "moduleFileExtensions": [
+          "js",
+          "json"
+        ],
+        "moduleNameMapper": {
+          "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+          "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
+        }
+      }
+    ]
+  },
+  "babel": {
+    "env": {
+      "test": {
+        "presets": ["env", "react"]
+      }
+    }
   },
   "browserslist": [
     ">0.2%",
@@ -36,6 +69,12 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "concurrently": "^4.0.1"
+    "babel-core": "^6.26.3",
+    "babel-jest": "^23.6.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "concurrently": "^4.0.1",
+    "jest": "^23.6.0",
+    "react-test-renderer": "^16.6.1"
   }
 }

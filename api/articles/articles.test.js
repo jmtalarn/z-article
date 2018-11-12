@@ -1,3 +1,7 @@
-test('adds 1 + 2 to equal 3', () => {
-  expect(1+2).toBe(3);
+const articles = require('./articles');
+test('check the result of an operation is not null', () => {
+	const articlesFound = articles.find();
+	expect(articlesFound).toBeTruthy();
+	expect(articlesFound).not.toBeNull();
+
 });

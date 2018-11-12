@@ -9,12 +9,12 @@ function find(query) {
 	if (query) {
 		result = articles.filter(article => {
 
-			if (article.title.toUpperCase().indexOf(q.toUpperCase()) !== -1)
+			if (article.title.toUpperCase().indexOf(query.toUpperCase()) !== -1)
 				return true;
-			if (article.body.toUpperCase().indexOf(q.toUpperCase()) !== -1)
+			if (article.body.toUpperCase().indexOf(query.toUpperCase()) !== -1)
 				return true;
 			if (article.authors) {
-				return (article.authors.some(author => author.toUpperCase().indexOf(q.toUpperCase()) !== -1));
+				return (article.authors.some(author => author.toUpperCase().indexOf(query.toUpperCase()) !== -1));
 			}
 			return false;
 		});
@@ -23,7 +23,7 @@ function find(query) {
 }
 
 function get(id) {
-	return articlesStore.data.find(article => article.id === articleId);
+	return articlesStore.data.find(article => article.id === id);
 }
 
 

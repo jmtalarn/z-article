@@ -1,17 +1,17 @@
 var express = require('express');
 var router = express.Router();
-var articles = require('./articles');
+var articlesStore = require('./articlesStore');
 
 
 router.get('/', function (req, res, next) {
 	const query = req.query.q;
-	const result = articles.find(query);
+	const result = articlesStore.find(query);
 	res.json(result);
 });
 
 router.get('/:id', function (req, res, next) {
 	const articleId = req.params.id;
-	const articleFound = articles.get(articleId);
+	const articleFound = articlesStore.get(articleId);
 	if (articleFound) {
 		res.json(articleFound);
 	} else {

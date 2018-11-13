@@ -6,6 +6,8 @@ or
 ```npm install && npm start```
  on your command line to run the project.
 
+> The following documentation is mostly provided by the create-react-app generator with the exception of the concurrently execution to run the backend
+
 ## Available Scripts
 
 In the project directory, you can run:

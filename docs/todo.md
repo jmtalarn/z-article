@@ -19,13 +19,13 @@
 		* [X] containing the fields body, title and authors
     	* [X] Prepending the string <https://cdn2.audiencemedia.com/> to each image in body
 
-* [ ] Do a client
-	* [ ] Display article
-	* [ ] Navigation
-		* [ ] to next
-			* [ ] Not displayed if last
-		* [ ] to previous
-			* [ ] Not displayed if first
-	* [ ] Search box
-		* [ ] Show results on type
-		* [ ] Load article on click results
+* [X] Do a client
+	* [X] Display article
+	* [X] Navigation
+		* [X] to next
+			* [X] Not displayed if last
+		* [X] to previous
+			* [X] Not displayed if first
+	* [X] Search box
+		* [X] Show results on type
+		* [X] Load article on click results

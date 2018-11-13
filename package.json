@@ -31,8 +31,14 @@
   },
   "jest": {
     "verbose": true,
-    "projects": [
-      {
+    "collectCoverageFrom": [
+      "**/*.{js,jsx}",
+      "!**/node_modules/**",
+      "!**/*.test.js",
+      "!**/coverage/**",
+      "!**/serviceW"
+    ],
+    "projects": [{
         "displayName": "backend",
         "testEnvironment": "node",
         "testMatch": [

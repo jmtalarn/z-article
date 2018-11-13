@@ -11,7 +11,9 @@ router.get('/', function (req, res, next) {
 
 router.get('/:id', function (req, res, next) {
 	const articleId = req.params.id;
+	console.log("****" + articleId);
 	const articleFound = articlesStore.get(articleId);
+	console.log(articleFound);
 	if (articleFound) {
 		res.json(articleFound);
 	} else {

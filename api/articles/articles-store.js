@@ -23,7 +23,7 @@ function find(query) {
 }
 
 function get(id) {
-	return articlesStore.data.find(article => article.id === id);
+	return articlesStore.data.find(article => article.id == id);
 }
 
 

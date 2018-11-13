@@ -6,7 +6,7 @@
 }
 
 .navigation .nav-button {
-	border: 1px solid dimgray;
+	border: 1px solid var(--border-color);
 	padding: 1rem;
 	width: 5rem;
 	border-radius: 15px;

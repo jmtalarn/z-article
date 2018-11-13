@@ -13,7 +13,12 @@ router.get('/:id', function (req, res, next) {
 	const articleId = req.params.id;
 	const articleFound = articlesStore.get(articleId);
 	if (articleFound) {
-		res.json(articleFound);
+		const navigation = articlesStore.navigation(articleId);
+		res.json({
+			article: articleFound,
+			navigation
+		}
+		);
 	} else {
 		res.send(404);
 	}

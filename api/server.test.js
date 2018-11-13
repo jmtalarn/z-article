@@ -14,17 +14,31 @@ describe('Express server ', function () {
 	afterEach(function () {
 		server.close();
 	});
-	it(`responds to ${api}`, (done) => {
+	it(`responds OK to ${api}`, (done) => {
 		request(server)
 			.get(api)
 			.expect(200, done);
 	});
-	it(`responds to ${existingArticleUrl} (existing id)`, (done) => {
+	it(`responds OK to ${existingArticleUrl} (existing id)`, (done) => {
 		request(server)
 			.get(existingArticleUrl)
 			.expect(200, done);
 	});
-	it(`responds to ${unexistingArticleUrl} (unexisting id)`, (done) => {
+	it(`responds with an article and a navigation for an existing article on ${existingArticleUrl} `, (done) => {
+		request(server)
+			.get(existingArticleUrl)
+			.expect(200)
+			.end(function (err, res) {
+				const response = res.body;
+				expect(response.article).toBeTruthy();
+				expect(response.navigation).toBeTruthy();
+				expect(response.article.id).toBe(existingId);
+				done();
+			});
+	});
+
+
+	it(`responds 404 to ${unexistingArticleUrl} (unexisting id)`, (done) => {
 		request(server)
 			.get(unexistingArticleUrl)
 			.expect(404, done);

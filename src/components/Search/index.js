@@ -14,6 +14,11 @@ export default class Search extends Component {
 					className="search-input"
 					placeholder="Search for an awesome article"
 				/>
+				<div className="search-results">
+					<div className="search-results-empty">
+						No results ...
+					</div>
+				</div>
 			</div>
 		);
 	}

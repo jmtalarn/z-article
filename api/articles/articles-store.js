@@ -21,7 +21,7 @@ function find(query) {
 				return (article.authors.some(author => author.toUpperCase().indexOf(query.toUpperCase()) !== -1));
 			}
 			return false;
-		}).map(mapArticle);
+		}).map((article) => { return mapArticle(article, false); });
 		return result;
 	} else {
 		return articles.map(article => article.id);
@@ -45,7 +45,7 @@ function navigation(id) {
 	return navigation;
 
 }
-function mapArticle(article) {
+function mapArticle(article, body = true) {
 	if (article) {
 		return (
 			{

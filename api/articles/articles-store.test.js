@@ -1,4 +1,5 @@
 const articlesStore = require('./articles-store');
+const cheerio = require('cheerio');
 
 describe('Article API ', () => {
 	it('find returns something not null', () => {
@@ -18,6 +19,25 @@ describe('Article API ', () => {
 		const articlesFiltered = articlesStore.find("lessons");
 		expect(articlesFiltered.length).toBeLessThan(articlesFound.length);
 	});
+	it('returns title, authors when filter results', () => {
+		const articlesFound = articlesStore.find();
+		const articlesFiltered = articlesStore.find("company");
+		articlesFiltered.every(article => {
+			expect(article).toHaveProperty('title');
+			expect(article).toHaveProperty('authors');
+		});
+	});
+	it('prepends the string <https://cdn2.audiencemedia.com/> to all images', () => {
+		const articlesFound = articlesStore.find();
+		const articlesFiltered = articlesStore.find("company");
+		articlesFiltered.every(article => {
+			const $ = cheerio.load(article.body);
+			$('img').each((idx, img) => {
+				expect($(img).attr('src')).toMatch(/^https:\/\/cdn2\.audiencemedia\.com/);
+			});
+		});
+	});
+
 	it('find accepts a parameter to filter results (tag <\/figcaption> in body)', () => {
 		const articlesFound = articlesStore.find();
 		const articlesFiltered = articlesStore.find("<\/figcaption>");
@@ -28,6 +48,13 @@ describe('Article API ', () => {
 		const firstArticleId = articlesStore.find()[ 0 ];
 		const anArticleById = articlesStore.get(firstArticleId);
 		expect(anArticleById.id).toBe(firstArticleId);
+	});
+	it('returns body, title and authors per article when get', () => {
+		const firstArticleId = articlesStore.find()[ 0 ];
+		const anArticleById = articlesStore.get(firstArticleId);
+		expect(anArticleById).toHaveProperty('body');
+		expect(anArticleById).toHaveProperty('title');
+		expect(anArticleById).toHaveProperty('authors');
 	});
 
 	it('got correct navigation for the first article', () => {

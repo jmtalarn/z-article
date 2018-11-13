@@ -20,7 +20,7 @@ router.get('/:id', function (req, res, next) {
 		}
 		);
 	} else {
-		res.send(404);
+		res.sendStatus(404);
 	}
 });
 

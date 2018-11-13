@@ -29,4 +29,29 @@ describe('Article API ', () => {
 		const anArticleById = articlesStore.get(id);
 		expect(anArticleById).toBe(firstArticleFound);
 	});
+
+	it('got correct navigation for the first article', () => {
+		const firstArticle = articlesStore.find()[ 0 ];
+		const id = firstArticle.id;
+		const navigation = articlesStore.navigation(id);
+		expect(navigation.next).toBeTruthy();
+		expect(navigation.previous).toBeFalsy();
+	});
+	it('got correct navigation for the last article', () => {
+		const articles = articlesStore.find();
+		const lastArticle = articles[ articles.length - 1 ];
+		const id = lastArticle.id;
+		const navigation = articlesStore.navigation(id);
+		expect(navigation.next).toBeFalsy();
+		expect(navigation.previous).toBeTruthy();
+	});
+	it('got correct navigation for middle article', () => {
+		const articles = articlesStore.find();
+		const article = articles[ parseInt(articles.length / 2) ];
+		const id = article.id;
+		const navigation = articlesStore.navigation(id);
+		expect(navigation.next).toBeTruthy();
+		expect(navigation.previous).toBeTruthy();
+	});
+
 });

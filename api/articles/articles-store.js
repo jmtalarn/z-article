@@ -1,10 +1,10 @@
-const articlesStore = require('../data/articles.json');
+const articlesData = require('../data/articles.json');
 
 var express = require('express');
 var router = express.Router();
 
 function find(query) {
-	const articles = articlesStore.data;
+	const articles = articlesData.data;
 	let result = articles;
 	if (query) {
 		result = articles.filter(article => {
@@ -23,8 +23,20 @@ function find(query) {
 }
 
 function get(id) {
-	return articlesStore.data.find(article => article.id == id);
+	return articlesData.data.find(article => article.id == id);
 }
 
+function navigation(id) {
+	const limit = articlesData.data.length - 1;
+	const articleIndex = articlesData.data.findIndex(article => article.id == id);
+	console.log(articleIndex, limit);
+	const navigation = {
+		next: articleIndex < limit ? articlesData.data[ articleIndex + 1 ].id : null,
+		previous: articleIndex > 0 ? articlesData.data[ articleIndex - 1 ].id : null
+	};
 
-module.exports = { find, get };
+	return navigation;
+
+}
+
+module.exports = { find, get, navigation };

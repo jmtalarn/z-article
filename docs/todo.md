@@ -1,12 +1,14 @@
 #Todo list
-* [ ] Develop API
-	* [ ] list
-	* [ ] find
+* [X] Develop API
+	* [X] list
+	* [X] find
 	* [ ] get
-* [ ] Test business methods
-	* [ ] list
-	* [ ] find
+		* [ ] Next/previous item to response
+* [X] Test business methods
+	* [X] list
+	* [X] find
 	* [ ] get
+		* [ ]  Next/previous item to response
 * [ ] Do a client
 	* [ ] Display article
 	* [ ] Navigation

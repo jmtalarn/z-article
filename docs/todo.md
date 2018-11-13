@@ -1,14 +1,23 @@
 #Todo list
-* [X] Develop API
-	* [X] list
-	* [X] find
-	* [X] get
+* [] Develop API
+	* [] list
+    	* [ ] of articles ids
+	* [] find
+	* [] get
 		* [X] Next/previous item to response
-* [X] Test business methods
-	* [X] list
-	* [X] find
-	* [X] get
+		* [ ] containing the fields body, title and authors
+		* [ ] Prepending the string <https://cdn2.audiencemedia.com/> to each image in body
+
+
+* [ ] Test business methods
+	* [ ] list
+		* [ ] of articles ids
+	* [ ] find
+	* [ ] get
 		* [X]  Next/previous item to response
+		* [ ] containing the fields body, title and authors
+    	* [ ] Prepending the string <https://cdn2.audiencemedia.com/> to each image in body
+
 * [ ] Do a client
 	* [ ] Display article
 	* [ ] Navigation

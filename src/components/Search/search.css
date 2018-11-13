@@ -17,6 +17,7 @@
 	width: calc(100% - 3rem);
 	padding: .5rem;
 	border-radius: 4px;
+	line-height: 1rem;
 
 }
 
@@ -47,7 +48,13 @@
 	text-decoration: none;
 	padding: 10px;
 	color: inherit;
+	-webkit-transition: all 300ms ease-in;
 	transition: all 300ms ease-in;
+	border: none;
+	background: none;
+	width: 100%;
+	text-align: left;
+	cursor: pointer;
 }
 
 .search .search-results .article-link:hover {

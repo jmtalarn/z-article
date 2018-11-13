@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import './search.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { resetSearch } from '../../actions/article';
+
 
 const ArticleLink = ({ title, id, onClick }) => (
 	<li>
-		<a className="article-link" href="#" onClick={() => onClick(id)}>{title}</a>
-
+		<button className="article-link" onClick={() => onClick(id)}>{title}</button>
 	</li>);
 
 export default class Search extends Component {
@@ -18,18 +17,21 @@ export default class Search extends Component {
 		this.onSearchTextChange = this.onSearchTextChange.bind(this);
 		this.goToArticle = this.goToArticle.bind(this);
 	}
+
 	onSearchTextChange(event) {
 
 		const { searchArticle } = this.props;
 		const text = event.target.value;
+
 		this.setState({ text });
 		searchArticle(text);
 	}
 	goToArticle(id) {
-		const { loadArticle } = this.props;
+		const { loadArticle, resetSearch } = this.props;
+		this.setState({ text: '' });
 		loadArticle(id);
 		resetSearch();
-		this.setState({ text: '' });
+
 	}
 	renderEmpty() {
 		return <div className="search-results-empty">No results ...</div>;
@@ -67,7 +69,7 @@ export default class Search extends Component {
 				<FontAwesomeIcon className="search-icon" icon="search" />
 				<input type="text"
 					className="search-input"
-					value={this.state.value}
+					value={this.state.text}
 					placeholder="Search for an awesome article"
 					onChange={this.onSearchTextChange}
 				/>

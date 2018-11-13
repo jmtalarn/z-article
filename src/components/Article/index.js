@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import { loadArticle } from '../../actions/article';
 
 const ArticleState = function (state, props) {
-	const { article: { data } } = state;
+	console.log(state);
+	const { article: { data = {} } } = state;
 
 	return {
 		data

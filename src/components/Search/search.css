@@ -21,7 +21,6 @@
 }
 
 .search .search-results {
-	display: none;
 	position: absolute;
 	top: 3.5rem;
 	left: 0;

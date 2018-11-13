@@ -1,1 +1,2 @@
 export const LOAD_ARTICLE = "LOAD_ARTICLE";
+export const SEARCH_ARTICLE = "SEARCH_ARTICLE";

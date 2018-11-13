@@ -1,7 +1,8 @@
 import * as ACTION from '../../actions/article/type';
 
 const initialState = {
-	data: {}
+	data: {},
+	search: []
 };
 
 function articleReducer(state = initialState, action) {
@@ -11,6 +12,12 @@ function articleReducer(state = initialState, action) {
 				{},
 				state,
 				{ data: action.article }
+			);
+		case ACTION.SEARCH_ARTICLE:
+			return Object.assign(
+				{},
+				state,
+				{ search: action.articles }
 			);
 		default:
 			return state;

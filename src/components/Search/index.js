@@ -1,26 +1,26 @@
-import React, { Component } from 'react';
-import './search.css'
-	;
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Search from './search';
+import { connect } from 'react-redux';
+import { searchArticle } from '../../actions/article';
 
-export default class Search extends Component {
+const SearchState = function (state, props) {
+	const { article: { search } } = state;
 
-	render() {
+	return {
+		results: search
+	};
+};
 
-		return (
-			<div className="search">
-				<FontAwesomeIcon className="search-icon" icon="search" />
-				<input type="text"
-					className="search-input"
-					placeholder="Search for an awesome article"
-				/>
-				<div className="search-results">
-					<div className="search-results-empty">
-						No results ...
-					</div>
-				</div>
-			</div>
-		);
-	}
+const SearchDispatch = function (dispatch) {
+	return {
+		searchArticle: (text) => {
+			dispatch(searchArticle(text));
+		}
+	};
+};
 
-}
+var SearchContainer = connect(
+	SearchState,
+	SearchDispatch
+)(Search);
+
+export default SearchContainer;

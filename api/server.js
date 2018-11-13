@@ -4,20 +4,23 @@
 // =============================================================================
 
 // call the packages we need
-var express = require('express');        // call express
-var app = express();                 // define our app using express
-var bodyParser = require('body-parser');
+const express = require('express');        // call express
+const app = express();                 // define our app using express
+const bodyParser = require('body-parser');
 
-const articles = require('./articles/articles');
+const articles = require('./articles/routes');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-var port = process.env.PORT || 3001;
+const port = process.env.PORT || 3001;
 
 
 app.use('/api/articles', articles);
 
 
-app.listen(port);
-console.log('API backend listening on port ' + port);
+const server = app.listen(port, () => {
+	console.log('API backend listening on port ' + port);
+});
+
+module.exports = server;

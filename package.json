@@ -31,7 +31,8 @@
   },
   "jest": {
     "verbose": true,
-    "projects": [{
+    "projects": [
+      {
         "displayName": "backend",
         "testEnvironment": "node",
         "testMatch": [
@@ -58,7 +59,10 @@
   "babel": {
     "env": {
       "test": {
-        "presets": ["env", "react"]
+        "presets": [
+          "env",
+          "react"
+        ]
       }
     }
   },
@@ -75,6 +79,7 @@
     "babel-preset-react": "^6.24.1",
     "concurrently": "^4.0.1",
     "jest": "^23.6.0",
-    "react-test-renderer": "^16.6.1"
+    "react-test-renderer": "^16.6.1",
+    "supertest": "^3.3.0"
   }
 }

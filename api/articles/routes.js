@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var articlesStore = require('./articlesStore');
+var articlesStore = require('./articles-store');
 
 
 router.get('/', function (req, res, next) {

@@ -1,4 +1,4 @@
-const articlesStore = require('./articlesStore');
+const articlesStore = require('./articles-store');
 
 describe('Article API ', () => {
 	it('find returns something not null', () => {

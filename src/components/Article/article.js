@@ -16,7 +16,7 @@ export default class Article extends Component {
 		return (
 			<h3 className="article-authors">
 				<FontAwesomeIcon className="icon" icon="users" />
-				{authors ? authors.map((author, idx) => <span key={idx} className="article-author">{author}</span>) : null}
+				{authors.map((author, idx) => <span key={idx} className="article-author">{author}</span>)}
 			</h3>
 		);
 

@@ -29,11 +29,11 @@ export default class Search extends Component {
 	renderSearchResults() {
 		const { results } = this.props;
 		return (
-			<div className="search-results">
-
-				{results.length && this.state.text !== '' ? this.renderResults() : this.renderEmpty()}
-
-			</div>
+			this.state.text ?
+				<div className="search-results">
+					{results.length !== '' ? this.renderResults() : this.renderEmpty()}
+				</div>
+				: null
 		);
 	}
 	render() {

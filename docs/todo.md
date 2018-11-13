@@ -2,13 +2,13 @@
 * [X] Develop API
 	* [X] list
 	* [X] find
-	* [ ] get
-		* [ ] Next/previous item to response
+	* [X] get
+		* [X] Next/previous item to response
 * [X] Test business methods
 	* [X] list
 	* [X] find
-	* [ ] get
-		* [ ]  Next/previous item to response
+	* [X] get
+		* [X]  Next/previous item to response
 * [ ] Do a client
 	* [ ] Display article
 	* [ ] Navigation

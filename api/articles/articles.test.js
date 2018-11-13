@@ -14,6 +14,15 @@ describe('Article API ', () => {
 			expect.arrayContaining(articlesFiltered)
 		);
 	});
+	it('find accepts a parameter to filter results (tag <\/figcaption> in body)', () => {
+		const articlesFound = articlesStore.find();
+		const articlesFiltered = articlesStore.find("<\/figcaption>");
+		expect(articlesFiltered.length).toBeLessThan(articlesFound.length);
+		expect(articlesFound).toEqual(
+			expect.arrayContaining(articlesFiltered)
+		);
+	});
+
 	it('gets one article by its id', () => {
 		const firstArticleFound = articlesStore.find()[ 0 ];
 		const id = firstArticleFound.id;

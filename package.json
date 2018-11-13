@@ -36,7 +36,8 @@
       "!**/node_modules/**",
       "!**/*.test.js",
       "!**/coverage/**",
-      "!**/serviceW"
+      "!**/serviceWorker.js",
+      "!**/index.js"
     ],
     "projects": [{
         "displayName": "backend",

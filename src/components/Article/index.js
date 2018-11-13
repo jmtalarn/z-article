@@ -1,12 +1,12 @@
-import Article from './product-page';
+import Article from './article';
 import { connect } from 'react-redux';
 import { loadArticle } from '../../actions/article';
 
 const ArticleState = function (state, props) {
-	const { article } = state;
+	const { article: { data } } = state;
 
 	return {
-		article
+		data
 	};
 };
 

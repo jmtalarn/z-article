@@ -3,8 +3,8 @@
 	margin: 2rem auto 1rem;
 	border-radius: 4px;
 	padding: 1rem;
-	width: 100%;
-	max-width: 80rem;
+	width: calc(100% - 4rem);
+	max-width: 60rem;
 }
 
 .article .icon {

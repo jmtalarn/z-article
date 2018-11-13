@@ -13,6 +13,7 @@ export function loadArticle(id) {
 					{
 						type: ACTION.LOAD_ARTICLE,
 						data: json.article,
+						navigation: json.navigation
 					});
 			});
 	};

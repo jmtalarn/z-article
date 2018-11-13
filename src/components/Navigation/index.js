@@ -1,22 +1,26 @@
-import React, { Component } from 'react';
-import './navigation.css'
-	;
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Navigation from './navigation';
+import { connect } from 'react-redux';
+import { loadArticle } from '../../actions/article';
 
-export default class Navigation extends Component {
+const NavigationState = function (state, props) {
+	const { article: { navigation = {} } } = state;
 
-	render() {
+	return {
+		navigation
+	};
+};
 
-		return (
-			<nav className="navigation">
-				<button className="nav-button">
-					<FontAwesomeIcon icon="step-backward" />
-				</button>
-				<button className="nav-button">
-					<FontAwesomeIcon icon="step-forward" />
-				</button>
-			</nav>
-		);
-	}
+const NavigationDispatch = function (dispatch) {
+	return {
+		loadArticle: (id) => {
+			dispatch(loadArticle(id));
+		},
+	};
+};
 
-}
+var NavigationContainer = connect(
+	NavigationState,
+	NavigationDispatch
+)(Navigation);
+
+export default NavigationContainer;

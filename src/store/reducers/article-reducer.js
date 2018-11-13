@@ -12,7 +12,10 @@ function articleReducer(state = initialState, action) {
 			return Object.assign(
 				{},
 				state,
-				{ data: action.data }
+				{
+					data: action.data,
+					navigation: action.navigation
+				}
 			);
 		case ACTION.SEARCH_ARTICLE:
 			return Object.assign(

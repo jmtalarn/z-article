@@ -14,8 +14,8 @@ class App extends Component {
 					<h1 className="title"> Z-article </h1>
 					<Search />
 				</header>
-				<Article />
 				<main>
+					<Article />
 					<Navigation />
 				</main>
 			</div>

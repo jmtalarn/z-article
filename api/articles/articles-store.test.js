@@ -3,8 +3,15 @@ const articlesStore = require('./articles-store');
 describe('Article API ', () => {
 	it('find returns something not null', () => {
 		const articlesFound = articlesStore.find();
-		expect(articlesFound).toBeTruthy();
 		expect(articlesFound).not.toBeNull();
+	});
+	it('find returns an array of numbers', () => {
+		const articlesFound = articlesStore.find();
+		expect(Array.isArray(articlesFound)).toBe(true);
+		articlesFound.every(articleId => {
+			expect(articleId).toBeGreaterThan(0);
+			expect(typeof articleId === 'number').toBe(true);
+		});
 	});
 	it('find accepts a parameter to filter results', () => {
 		const articlesFound = articlesStore.find();

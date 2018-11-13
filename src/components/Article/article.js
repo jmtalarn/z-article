@@ -24,7 +24,7 @@ export default class Article extends Component {
 	renderArticle() {
 		const { article } = this.props;
 		return (
-			<>
+			<React.Fragment>
 				<h2 className="article-title">
 					<FontAwesomeIcon className="icon" icon="box" />{article.title}
 				</h2>
@@ -35,7 +35,7 @@ export default class Article extends Component {
 						{ __html: article.body }
 					}
 				/>
-			</>
+			</React.Fragment>
 		);
 	}
 	render() {

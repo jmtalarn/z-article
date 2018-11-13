@@ -1,2 +1,3 @@
 export const LOAD_ARTICLE = "LOAD_ARTICLE";
 export const SEARCH_ARTICLE = "SEARCH_ARTICLE";
+export const RESET_SEARCH = "RESET_SEARCH";

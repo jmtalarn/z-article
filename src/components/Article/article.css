@@ -11,6 +11,13 @@
 	margin-right: 1rem;
 }
 
+.article img {
+	max-width: 100%;
+	height: auto;
+	margin: 1px auto;
+	display: block;
+}
+
 .article-author {
 	font-weight: 200;
 	font-style: oblique;

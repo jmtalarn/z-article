@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Search from './components/Search';
 import Navigation from './components/Navigation';
-import Article from './components/Article/article';
+import Article from './components/Article';
 import './utils/FontAwesome.init';
 import './App.css';
 

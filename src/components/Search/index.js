@@ -1,6 +1,6 @@
 import Search from './search';
 import { connect } from 'react-redux';
-import { searchArticle } from '../../actions/article';
+import { searchArticle, loadArticle, resetSearch } from '../../actions/article';
 
 const SearchState = function (state, props) {
 	const { article: { search } } = state;
@@ -14,7 +14,14 @@ const SearchDispatch = function (dispatch) {
 	return {
 		searchArticle: (text) => {
 			dispatch(searchArticle(text));
+		},
+		loadArticle: (id) => {
+			dispatch(loadArticle(id));
+		},
+		resetSearch: () => {
+			dispatch(resetSearch());
 		}
+
 	};
 };
 

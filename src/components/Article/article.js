@@ -11,32 +11,39 @@ export default class Article extends Component {
 			</p>
 		);
 	}
+	renderAuthors() {
+		const { article: { authors = [] } } = this.props;
+		return (
+			<h3 className="article-authors">
+				<FontAwesomeIcon className="icon" icon="users" />
+				{authors ? authors.map((author, idx) => <span key={idx} className="article-author">{author}</span>) : null}
+			</h3>
+		);
+
+	}
 	renderArticle() {
-		const { data } = this.props;
+		const { article } = this.props;
 		return (
 			<>
 				<h2 className="article-title">
-					<FontAwesomeIcon className="icon" icon="box" />{data.title}
+					<FontAwesomeIcon className="icon" icon="box" />{article.title}
 				</h2>
-				<h3 className="article-authors">
-					<FontAwesomeIcon className="icon" icon="users" />
-					{data.authors.map((author, idx) => <span key={idx} className="article-author">{author}</span>)}
-				</h3>
+
 				<div
 					className="article-body"
 					dangerouslySetInnerHTML={
-						{ __html: data.body }
+						{ __html: article.body }
 					}
 				/>
 			</>
 		);
 	}
 	render() {
-		const { data } = this.props;
+		const { article } = this.props;
 
 		return (
 			<article className="article">
-				{Boolean(data) ? this.renderArticle() : this.renderEmpty()}
+				{Object.keys(article).length ? this.renderArticle() : this.renderEmpty()}
 			</article>
 		);
 	}

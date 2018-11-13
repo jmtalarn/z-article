@@ -8,16 +8,23 @@ const initialState = {
 function articleReducer(state = initialState, action) {
 	switch (action.type) {
 		case ACTION.LOAD_ARTICLE:
+
 			return Object.assign(
 				{},
 				state,
-				{ data: action.article }
+				{ data: action.data }
 			);
 		case ACTION.SEARCH_ARTICLE:
 			return Object.assign(
 				{},
 				state,
 				{ search: action.articles }
+			);
+		case ACTION.RESET_SEARCH:
+			return Object.assign(
+				{},
+				state,
+				{ search: [] }
 			);
 		default:
 			return state;

@@ -1,19 +1,35 @@
 import React, { Component } from 'react';
 import './search.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { resetSearch } from '../../actions/article';
+
+const ArticleLink = ({ title, id, onClick }) => (
+	<li>
+		<a className="article-link" href="#" onClick={() => onClick(id)}>{title}</a>
+
+	</li>);
 
 export default class Search extends Component {
+
 	constructor(props) {
 		super(props);
+
 		this.state = { text: '' };
 		this.onSearchTextChange = this.onSearchTextChange.bind(this);
+		this.goToArticle = this.goToArticle.bind(this);
 	}
 	onSearchTextChange(event) {
-		console.log(this.props);
+
 		const { searchArticle } = this.props;
 		const text = event.target.value;
 		this.setState({ text });
 		searchArticle(text);
+	}
+	goToArticle(id) {
+		const { loadArticle } = this.props;
+		loadArticle(id);
+		resetSearch();
+		this.setState({ text: '' });
 	}
 	renderEmpty() {
 		return <div className="search-results-empty">No results ...</div>;
@@ -22,7 +38,15 @@ export default class Search extends Component {
 		const { results } = this.props;
 		return (
 			<ul>
-				{results.map((result, idx) => <li key={idx}>{result.title}</li>)};
+				{results.map((result, idx) => (
+					<ArticleLink
+						key={idx}
+						id={result.id}
+						title={result.title}
+						onClick={this.goToArticle}
+					/>
+				)
+				)}
 			</ul>
 		);
 	}
@@ -31,7 +55,7 @@ export default class Search extends Component {
 		return (
 			this.state.text ?
 				<div className="search-results">
-					{results.length !== '' ? this.renderResults() : this.renderEmpty()}
+					{results.length ? this.renderResults() : this.renderEmpty()}
 				</div>
 				: null
 		);

@@ -12,7 +12,7 @@ export function loadArticle(id) {
 				return dispatch(
 					{
 						type: ACTION.LOAD_ARTICLE,
-						article: json,
+						data: json.article,
 					});
 			});
 	};
@@ -32,5 +32,11 @@ export function searchArticle(text) {
 					});
 			});
 	};
-
 };
+export function resetSearch() {
+	return (
+		{
+			type: ACTION.RESET_SEARCH
+		}
+	);
+}

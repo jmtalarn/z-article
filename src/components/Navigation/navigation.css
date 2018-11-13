@@ -1,0 +1,19 @@
+.navigation {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
+.navigation .nav-button {
+	border: 1px solid dimgray;
+	padding: 1rem;
+	width: 5rem;
+	border-radius: 15px;
+	cursor: pointer;
+	transition: all 300ms ease-in;
+}
+
+.navigation .nav-button:hover {
+	background-color: var(--highlight-color);
+}

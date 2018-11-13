@@ -1,5 +1,6 @@
 .header .title {
 	font-family: 'Kumar One Outline', cursive;
+	color: var(--main-color);
 }
 
 .header {

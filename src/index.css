@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Kumar+One+Outline|Montserrat:400,700|Open+Sans:300,400');
 
 @import 'normalize.css';
-
+@import 'variables.css';
 
 body {
 	font-family: 'Open Sans', sans-serif;

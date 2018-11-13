@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Search from './components/Search';
+import Navigation from './components/Navigation';
 import './utils/FontAwesome.init';
 import './App.css';
 
@@ -16,9 +17,7 @@ class App extends Component {
 					<article>
 						<h2>article</h2>
 					</article>
-					<nav>
-						navigation
-					</nav>
+					<Navigation />
 				</main>
 			</div>
 		);

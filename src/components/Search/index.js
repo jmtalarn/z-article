@@ -1,4 +1,4 @@
-import Search from './search';
+import { Search } from './search';
 import { connect } from 'react-redux';
 import { searchArticle, loadArticle, resetSearch } from '../../actions/article';
 

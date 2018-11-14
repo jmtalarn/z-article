@@ -3,12 +3,14 @@ import './search.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
-const ArticleLink = ({ title, id, onClick }) => (
-	<li>
-		<button className="article-link" onClick={() => onClick(id)}>{title}</button>
-	</li>);
+export const ArticleLink = ({ title, id, onClick }) => {
+	return (
+		<li>
+			<button className="article-link" onClick={() => onClick(id)}>{title}</button>
+		</li>);
+};
 
-export default class Search extends Component {
+export class Search extends Component {
 
 	constructor(props) {
 		super(props);
@@ -38,7 +40,6 @@ export default class Search extends Component {
 	}
 	renderResults() {
 		const { results } = this.props;
-
 		return (
 			<ul>
 				{results.map((result, idx) => (
@@ -55,7 +56,6 @@ export default class Search extends Component {
 	}
 	renderSearchResults() {
 		const { results } = this.props;
-		console.log(this.state.text);
 		return (
 			this.state.text ?
 				<div className="search-results">

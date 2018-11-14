@@ -1,17 +1,19 @@
 import React from 'react';
-import Search from './search';
+import { Search, ArticleLink } from './search';
 import renderer from 'react-test-renderer';
-import { configure, shallow } from 'enzyme';
+import { configure, shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import '../../utils/FontAwesome.init';
 
 configure({ adapter: new Adapter() });
 
 describe('Test <Search /> ', () => {
+	let state = { currentArticle: null, results: [] };
 
-	function goToArticle(id) {
-		currentArticle = id;
-	}
+	const goToArticle = jest.fn((id) => {
+		state.currentArticle = id;
+	});
+
 	function searchText(text) {
 		state.results = results.filter(result => result.title.indexOf(text) != -1);
 	}
@@ -20,7 +22,7 @@ describe('Test <Search /> ', () => {
 	}
 	const results = [ { id: 1000, title: "Title One" }, { id: 1001, title: "Title Two" }, { id: 1002, title: "Title One Two" } ];
 
-	let state = { currentArticle: null, results: [] };
+
 
 
 	beforeEach(() => {
@@ -47,24 +49,20 @@ describe('Test <Search /> ', () => {
 		expect(searchComponent).toMatchSnapshot();
 	});
 
-	// it('renders correctly with next and previous', () => {
-	// 	const navigationComponent = renderer
-	// 		.create(<Navigation navigation={navigation} loadArticle={goToArticle} />)
-	// 		.toJSON();
-	// 	expect(navigationComponent).toMatchSnapshot();
-	// });
 	it('search for "One"', () => {
 		const searchComponent = shallow(<Search searchArticle={searchText} loadArticle={goToArticle} resetSearch={resetSearch} results={state.results} />);
 		const textSearched = "One";
 		searchComponent.find('.search-input').simulate('change', { target: { value: textSearched } });
 		expect(state.results.length).toBeLessThan(results.length);
 	});
-	it('click result', () => {
-		const searchComponent = shallow(<Search searchArticle={searchText} loadArticle={goToArticle} resetSearch={resetSearch} results={[]} />);
+	it('item clicked', () => {
+		const props = { searchArticle: searchText, loadArticle: goToArticle, resetSearch: resetSearch, results: [] };
+		const searchComponent = mount(<Search {...props} />);
+
 		searchComponent.setState({ text: "One" }, () => {
-			searchComponent.setProps({ results }, () => {
-				searchComponent.find('.search-results .article-link:first-child ').simulate('click');
-				expect(state.currentArticle).toBe(results[ 0 ].id);
+			searchComponent.setProps({ results: results }, () => {
+				searchComponent.find(ArticleLink).first().find('button').simulate('click');
+				expect(goToArticle).toHaveBeenCalled();
 			});
 
 		});

@@ -18,7 +18,7 @@ export default class Navigation extends Component {
 		return (
 			<nav className="navigation">
 				<div className="previous">
-					{navigation.previous ?
+					{navigation && navigation.previous ?
 						<button
 							className="nav-button"
 							onClick={() => this.goToArticle(navigation.previous)}
@@ -29,7 +29,7 @@ export default class Navigation extends Component {
 					}
 				</div>
 				<div className="next">
-					{navigation.next ?
+					{navigation && navigation.next ?
 						<button
 							className="nav-button"
 							onClick={() => this.goToArticle(navigation.next)}

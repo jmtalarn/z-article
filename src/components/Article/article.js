@@ -14,10 +14,13 @@ export default class Article extends Component {
 	renderAuthors() {
 		const { article: { authors = [] } } = this.props;
 		return (
-			<h3 className="article-authors">
-				<FontAwesomeIcon className="icon" icon="users" />
-				{authors.map((author, idx) => <span key={idx} className="article-author">{author}</span>)}
-			</h3>
+			authors && authors.length ?
+				<h3 className="article-authors">
+					<FontAwesomeIcon className="icon" icon="users" />
+					{authors.map((author, idx) => <span key={idx} className="article-author">{author}</span>)}
+				</h3>
+				:
+				null
 		);
 
 	}
@@ -28,7 +31,7 @@ export default class Article extends Component {
 				<h2 className="article-title">
 					<FontAwesomeIcon className="icon" icon="box" />{article.title}
 				</h2>
-
+				{this.renderAuthors()}
 				<div
 					className="article-body"
 					dangerouslySetInnerHTML={

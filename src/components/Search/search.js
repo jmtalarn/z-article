@@ -38,6 +38,7 @@ export default class Search extends Component {
 	}
 	renderResults() {
 		const { results } = this.props;
+
 		return (
 			<ul>
 				{results.map((result, idx) => (
@@ -54,6 +55,7 @@ export default class Search extends Component {
 	}
 	renderSearchResults() {
 		const { results } = this.props;
+		console.log(this.state.text);
 		return (
 			this.state.text ?
 				<div className="search-results">

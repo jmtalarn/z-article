@@ -1,4 +1,21 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Z-article
+This is a React and Node.js for demo purposes
+
+## Set up
+The application consists in two parts:
+ * **backend** Implemented a RESTful API with Express.js to fullfill the requirements. Express.js is a wide used and convenient to build web application with Node.js
+ * **frontend** The frontend is a standard React app created with the create-react-app scripts which simplifies the steps to build, deploy and dev the application.
+There was added `concurrently` to run two processes together.
+
+### Design patterns
+Following the Redux patterns to implement the interaction in the application. Redux is Javascript library to manage the state of the application that plays well practically out-of-the box with React.
+
+### CSS
+Used standard CSS imported directly in the React components.So don't need of additional steps in the building tasks.
+
+### Testing
+Using Jest to test both backend and frontend. Added some configuration to do it on the `package.json` file. Jest works out of the box for any React project and includes assertion and mocking functionalities without adding other libraries to do that. Added `supertest` to test the application endpoints.
+
 ## TL; DR
 Type 
 ```yarn install && yarn start```
@@ -6,7 +23,9 @@ or
 ```npm install && npm start```
  on your command line to run the project.
 
-> The following documentation is mostly provided by the create-react-app generator with the exception of the concurrently execution to run the backend
+# The following documentation is mostly provided by the create-react-app generator with the exception of the concurrently execution to run the backend
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
